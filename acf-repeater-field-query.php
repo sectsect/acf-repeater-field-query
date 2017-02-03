@@ -317,81 +317,81 @@ function acf_rfq_options_page()
 /*==================================================
     Add date column to only list-page for a Specific Post Type
 ================================================== */
-    function acf_rfq_manage_posts_columns($columns)
-    {
-        $columns['eventdate'] = "Event Day<span style ='font-size: 11px; color: #999; margin-left: 12px;'>Today: " . date_i18n('Y-m-d') . "</span>";
-        if (ACF_RFQ_ACF_REPEATER_STARTTIME || ACF_RFQ_ACF_REPEATER_FINISHTIME) {
-            $columns['eventtime'] = "Time";
-        }
-        return $columns;
-    }
-    function acf_rfq_add_column($column_name, $postID)
-    {
-        if ($column_name == "eventdate") {
-            $fields = get_field(ACF_RFQ_ACF_REPEATER, $postID);
-            sort($fields);
-            echo '<ul style="padding: 0; margin: 0;">';
-            foreach ($fields as $field) {
-				if (!$field[ACF_RFQ_ACF_REPEATER_FINISHTIME]) {
-	                $today = date_i18n("Ymd");
-	                $thedate = date('Ymd', strtotime($field['date']));
-	                if ($thedate < $today) {
-	                    $finish = ' class="finish"';
-	                } elseif ($thedate == $today) {
-	                    $finish = ' class="theday"';
-	                } else {
-	                    $finish = '';
-	                }
-				} else {
-					$today = date_i18n("Ymd");
-	                $thedate = date('Ymd', strtotime($field['date']));
-					$rn = date_i18n("YmdHi");
-	                $fintime = date('YmdHi', strtotime($field['date'] . $field[ACF_RFQ_ACF_REPEATER_FINISHTIME]));
-	                if ($fintime < $rn) {
-	                    $finish = ' class="finish"';
-	                } elseif ($thedate == $today && $fintime >= $rn) {
-	                    $finish = ' class="theday"';
-	                } else {
-	                    $finish = '';
-	                }
-				}
-                $wd = date('D', strtotime($field['date']));
-                if ($wd === "Sat") {
-                    $wd = '<span style="color: #2ea2cc;">' . $wd . '</span>';
-                } elseif ($wd === "Sun") {
-                    $wd = '<span style="color: #a00;">' . $wd . '</span>';
-                } else {
-                    $wd = "<span>" . $wd . "</span>";
-                }
-                echo "<li".$finish.">" . date('Y-m-d', strtotime($field['date'])) . "（" . $wd . "）" . "</li>";
-            }
-            echo '</ul>';
-        } elseif ($column_name == "eventtime") {
-            $fields = get_field(ACF_RFQ_ACF_REPEATER, $postID);
-            sort($fields);
-            echo '<ul style="padding: 0; margin: 0;">';
-            foreach ($fields as $field) {
-                $today = date_i18n("Ymd");
-                $thedate = date('Ymd', strtotime($field['date']));
-                if ($thedate < $today) {
-                    $finish = ' class="finish"';
-                } elseif ($thedate == $today) {
-                    $finish = ' class="theday"';
-                } else {
-                    $finish = '';
-                }
-                echo "<li".$finish.">" . date('H:i', strtotime($field['starttime'])) . " - " . date('H:i', strtotime($field['finishtime'])) . "</li>";
-            }
-            echo '</ul>';
-        }
+function acf_rfq_manage_posts_columns($columns)
+{
+	$columns['eventdate'] = "Event Day<span style ='font-size: 11px; color: #999; margin-left: 12px;'>Today: " . date_i18n('Y-m-d') . "</span>";
+	if (ACF_RFQ_ACF_REPEATER_STARTTIME || ACF_RFQ_ACF_REPEATER_FINISHTIME) {
+		$columns['eventtime'] = "Time";
 	}
-    if(is_admin()){
-        global $pagenow;
-        if (isset($_GET['post_type']) && $_GET['post_type'] == ACF_RFQ_POST_TYPE && is_admin() && $pagenow == 'edit.php')  {
-            add_filter('manage_posts_columns', 'acf_rfq_manage_posts_columns');
-	        add_action('manage_posts_custom_column', 'acf_rfq_add_column', 10, 2);
-        }
-    }
+	return $columns;
+}
+function acf_rfq_add_column($column_name, $postID)
+{
+	if ($column_name == "eventdate") {
+		$fields = get_field(ACF_RFQ_ACF_REPEATER, $postID);
+		sort($fields);
+		echo '<ul style="padding: 0; margin: 0;">';
+		foreach ($fields as $field) {
+			if (!$field[ACF_RFQ_ACF_REPEATER_FINISHTIME]) {
+				$today = date_i18n("Ymd");
+				$thedate = date('Ymd', strtotime($field['date']));
+				if ($thedate < $today) {
+					$finish = ' class="finish"';
+				} elseif ($thedate == $today) {
+					$finish = ' class="theday"';
+				} else {
+					$finish = '';
+				}
+			} else {
+				$today = date_i18n("Ymd");
+				$thedate = date('Ymd', strtotime($field['date']));
+				$rn = date_i18n("YmdHi");
+				$fintime = date('YmdHi', strtotime($field['date'] . $field[ACF_RFQ_ACF_REPEATER_FINISHTIME]));
+				if ($fintime < $rn) {
+					$finish = ' class="finish"';
+				} elseif ($thedate == $today && $fintime >= $rn) {
+					$finish = ' class="theday"';
+				} else {
+					$finish = '';
+				}
+			}
+			$wd = date('D', strtotime($field['date']));
+			if ($wd === "Sat") {
+				$wd = '<span style="color: #2ea2cc;">' . $wd . '</span>';
+			} elseif ($wd === "Sun") {
+				$wd = '<span style="color: #a00;">' . $wd . '</span>';
+			} else {
+				$wd = "<span>" . $wd . "</span>";
+			}
+			echo "<li".$finish.">" . date('Y-m-d', strtotime($field['date'])) . "（" . $wd . "）" . "</li>";
+		}
+		echo '</ul>';
+	} elseif ($column_name == "eventtime") {
+		$fields = get_field(ACF_RFQ_ACF_REPEATER, $postID);
+		sort($fields);
+		echo '<ul style="padding: 0; margin: 0;">';
+		foreach ($fields as $field) {
+			$today = date_i18n("Ymd");
+			$thedate = date('Ymd', strtotime($field['date']));
+			if ($thedate < $today) {
+				$finish = ' class="finish"';
+			} elseif ($thedate == $today) {
+				$finish = ' class="theday"';
+			} else {
+				$finish = '';
+			}
+			echo "<li".$finish.">" . date('H:i', strtotime($field['starttime'])) . " - " . date('H:i', strtotime($field['finishtime'])) . "</li>";
+		}
+		echo '</ul>';
+	}
+}
+if(is_admin()){
+	global $pagenow;
+	if (isset($_GET['post_type']) && $_GET['post_type'] == ACF_RFQ_POST_TYPE && is_admin() && $pagenow == 'edit.php')  {
+		add_filter('manage_posts_columns', 'acf_rfq_manage_posts_columns');
+		add_action('manage_posts_custom_column', 'acf_rfq_add_column', 10, 2);
+	}
+}
 
 /*==================================================
     Add CSS to edit.php
