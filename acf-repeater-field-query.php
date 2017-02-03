@@ -332,15 +332,29 @@ function acf_rfq_options_page()
             sort($fields);
             echo '<ul style="padding: 0; margin: 0;">';
             foreach ($fields as $field) {
-                $today = date_i18n("Ymd");
-                $thedate = date('Ymd', strtotime($field['date']));
-                if ($thedate < $today) {
-                    $finish = ' class="finish"';
-                } elseif ($thedate == $today) {
-                    $finish = ' class="theday"';
-                } else {
-                    $finish = '';
-                }
+				if (!$field[ACF_RFQ_ACF_REPEATER_FINISHTIME]) {
+	                $today = date_i18n("Ymd");
+	                $thedate = date('Ymd', strtotime($field['date']));
+	                if ($thedate < $today) {
+	                    $finish = ' class="finish"';
+	                } elseif ($thedate == $today) {
+	                    $finish = ' class="theday"';
+	                } else {
+	                    $finish = '';
+	                }
+				} else {
+					$today = date_i18n("Ymd");
+	                $thedate = date('Ymd', strtotime($field['date']));
+					$rn = date_i18n("YmdHi");
+	                $fintime = date('YmdHi', strtotime($field['date'] . $field[ACF_RFQ_ACF_REPEATER_FINISHTIME]));
+	                if ($fintime < $rn) {
+	                    $finish = ' class="finish"';
+	                } elseif ($thedate == $today && $fintime >= $rn) {
+	                    $finish = ' class="theday"';
+	                } else {
+	                    $finish = '';
+	                }
+				}
                 $wd = date('D', strtotime($field['date']));
                 if ($wd === "Sat") {
                     $wd = '<span style="color: #2ea2cc;">' . $wd . '</span>';
