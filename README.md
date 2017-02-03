@@ -22,7 +22,7 @@
 
 ## Fields Structure Example
 
- <img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/acf-repeater-field-query/main.png" width="882" height="auto">
+ <img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/acf-repeater-field-query/screen.png" width="800" height="auto">
 
 ## NOTES
 
