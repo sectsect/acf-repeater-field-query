@@ -1,0 +1,45 @@
+@charset "UTF-8";
+#wpbody-content{
+	.eventdate{
+		li{
+			position: relative;
+			&.finish, &.theday{
+				&:before{
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+
+					z-index: 1;
+					border-radius: 50%;
+					text-align: center;
+					font-size: 9px;
+					color: #fff;
+					border-radius: 12px;
+					padding: 0 7px;
+					box-sizing: border-box;
+				}
+			}
+			&.finish{
+				color: #aaa;
+				&:before{
+					content: "Over";
+					background: #a00;
+				}
+			}
+			&.theday{
+				&:before{
+					content: "Today";
+					background: #2ea2cc;
+				}
+			}
+		}
+	}
+	.eventtime{
+		li{
+			&.finish{
+				color: #aaa;
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "sectsect/acf-repeater-field-query",
+  "description": "Modify the Query to multiple dates in a post For Advance Custom Field 'Repeater Field'.",
+	"keywords": ["github", "wordpress", "plugin", "ACF", "advance custom field", "Repeater"],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.3"
+  },
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "SECT WEB INTERACTIVE",
+		  "homepage": "https://www.ilovesect.com/"
+    }
+  ]
+}
