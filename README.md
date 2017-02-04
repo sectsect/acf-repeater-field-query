@@ -2,6 +2,15 @@
 
 ### Modify the Query to multiple dates in a post For [Advanced Custom Field](https://wordpress.org/plugins/advanced-custom-fields/) "Repeater Field"
 
+## Features
+
+For each `Date and Time` set in the `Repeater Field`, only the scheduled events are output to Archive Page.
+
+- One `Date and Time` set in the `Repeater Field` is output as `one event`.
+- Displayed in order of the most recent event (`ASC`).
+- Closed events are not output.
+- Supply a `function` for calendar :date:
+
 ## Requirements
 
 * PHP 5.3+
