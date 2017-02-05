@@ -78,7 +78,7 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		    if (get_post_type($post_id) == ACF_RFQ_POST_TYPE && get_field(ACF_RFQ_ACF_REPEATER, $post_id)) {
 		        global $wpdb;
 		        $fields = get_field(ACF_RFQ_ACF_REPEATER, $post_id);
-		        sortArrayByKey($fields, ACF_RFQ_ACF_REPEATER_DATE);  // sorting by "date"
+		        $this->sortArrayByKey($fields, ACF_RFQ_ACF_REPEATER_DATE);  // sorting by "date"
 
 		        $sql = 'DELETE FROM '.TABLE_NAME." WHERE post_id = $post_id;";
 		        $sql = $wpdb->prepare($sql);
