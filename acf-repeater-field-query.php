@@ -122,22 +122,11 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		================================================== */
 		function acf_rfq_pre_get_posts($query)
 		{
-		    // if( !empty($query->query_vars['calendar']) ){
-		    // 	$venue = $query->get('calendar');
-		    // 	$query->set('calendar',$venue);
-		    // }
-
 		    if (is_admin() || !$query->is_main_query()) {
 		        return;
 		    }
 
-		    // if(!is_user_logged_in()){	//	For "Preview" on status: future/draft/private
-		    // 	$query->set('post_status', 'publish');
-		    // }
-
 		    if ($query->is_post_type_archive(ACF_RFQ_POST_TYPE)) {
-		        $query->set('posts_per_page', -1);
-
 		        add_filter('posts_fields', 'event_fields', 10, 2);
 		        add_filter('posts_join', 'event_join', 10, 2);
 		        add_filter('posts_where', 'event_where', 10, 2);
