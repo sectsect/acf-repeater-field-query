@@ -17,7 +17,7 @@ function acf_rfq_admin_styles()
 function acf_rfq_admin_scripts()
 {
     wp_enqueue_script('select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', array('jquery'));
-    wp_enqueue_script('script', plugin_dir_path(dirname(__FILE__)) . 'admin/js/script.js', array('select2'));
+    wp_enqueue_script('script', plugin_dir_url(dirname(__FILE__)) . 'admin/js/script.js', array('select2'));
 }
 function register_acf_rfq_settings()
 {
