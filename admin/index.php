@@ -1,10 +1,5 @@
 <div class="wrap">
 	<h1>ACF Repeater Field Query<span style="font-size: 10px; padding-left: 12px;">- For Events -</span></h1>
-
-	<?php if(isset($_GET['settings-updated'])): ?>
-		<span style="background: #fff; border: 2px solid #5bd535; border-radius: 5px; color: #888; padding: 3px 10px; display: inline-block; margin: 10px 0 0;">Save Settings.</span>
-	<?php endif; ?>
-
 	<section>
 		<form method="post" action="options.php">
 			<hr />
@@ -71,27 +66,19 @@
 			</table>
 			<hr />
 			<h3>Field Settings<span style="font-size: 11px; font-weight: normal; margin-left: 10px;">(Field Name)</span></h3>
-			<table class="form-table">
+			<table id="field-settings" class="form-table">
 				<thead>
 					<tr>
-						<th style="width: 100px;">
-							<label for="acf_rfq_dategroup">Type<span style="color: #c00; font-size: 10px; font-weight: normal;">(Require)</cose></span></label>
-						</th>
-						<th>
-							Fields
-						</th>
-						<th>
-							Field Type
-						</th>
-						<th>
-							Return Format
-						</th>
+						<th></th>
+						<th>Field</th>
+						<th>Field Type</th>
+						<th>Return Format</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<th scope="row">
-							<label for="acf_rfq_dategroup">Repeater <span style="color: #c00; font-size: 10px; font-weight: normal;">(Require)</cose></span></label>
+							<label for="acf_rfq_dategroup">Repeater <span style="color: #c00; font-size: 10px; font-weight: normal;">(Require)</span></label>
 						</th>
 						<td>
 							<input type="text" id="acf_rfq_dategroup" class="regular-text" name="acf_rfq_dategroup" value="<?php echo get_option('acf_rfq_dategroup'); ?>" style="width: 150px;">
@@ -105,7 +92,7 @@
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="acf_rfq_datefield">- Date <span style="color: #c00; font-size: 10px; font-weight: normal;">(Require)</span><span style="display: block; font-size: 11px; font-weight: normal; margin-left: 10px;">Using "Date Picker"</span></label>
+							<label for="acf_rfq_datefield">Date <span style="color: #c00; font-size: 10px; font-weight: normal;">(Require)</span><span style="display: block; font-size: 11px; font-weight: normal; margin-left: 10px;">Using "Date Picker"</span></label>
 						</th>
 						<td>
 							<input type="text" id="acf_rfq_datefield" class="regular-text" name="acf_rfq_datefield" value="<?php echo get_option('acf_rfq_datefield'); ?>" style="width: 150px;">
@@ -119,7 +106,7 @@
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="acf_rfq_datefield">- StartTime<span style="font-size: 11px; font-weight: normal; margin-left: 10px;">(Optional)</span><span style="display: block; font-size: 11px; font-weight: normal; margin-left: 10px;">Using "Time Picker"</span></label>
+							<label for="acf_rfq_datefield">StartTime<span style="font-size: 11px; font-weight: normal; margin-left: 10px;">(Optional)</span><span style="display: block; font-size: 11px; font-weight: normal; margin-left: 10px;">Using "Time Picker"</span></label>
 						</th>
 						<td>
 							<input type="text" id="acf_rfq_datefield" class="regular-text" name="acf_rfq_starttimefield" value="<?php echo get_option('acf_rfq_starttimefield'); ?>" style="width: 150px;">
@@ -133,7 +120,7 @@
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="acf_rfq_datefield">- FinishTime<span style="font-size: 11px; font-weight: normal; margin-left: 10px;">(Optional)</span><span style="display: block; font-size: 11px; font-weight: normal; margin-left: 10px;">Using "Time Picker"</span></label>
+							<label for="acf_rfq_datefield">FinishTime<span style="font-size: 11px; font-weight: normal; margin-left: 10px;">(Optional)</span><span style="display: block; font-size: 11px; font-weight: normal; margin-left: 10px;">Using "Time Picker"</span></label>
 						</th>
 						<td>
 							<input type="text" id="acf_rfq_datefield" class="regular-text" name="acf_rfq_finishtimefield" value="<?php echo get_option('acf_rfq_finishtimefield'); ?>" style="width: 150px;">
@@ -147,7 +134,19 @@
 					</tr>
 				</tbody>
 			</table>
-			<a href="https://github.com/sectsect/acf-repeater-field-query" target="_blank">&gt; Document (Github)</a>
+			<hr>
+			<div class="link-doc">
+				<a href="https://github.com/sectsect/acf-repeater-field-query" target="_blank">
+					<dl>
+						<dt>
+							<img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/github.svg" width="22" height="auto">
+						</dt>
+					    <dd>
+					        Document on Github
+					    </dd>
+					</dl>
+				</a>
+			</div>
 			<?php submit_button(); ?>
 		</form>
 	</section>

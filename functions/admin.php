@@ -13,6 +13,7 @@ function acf_rfq_menu()
 function acf_rfq_admin_styles()
 {
     wp_enqueue_style('select2', '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', array());
+	wp_enqueue_style('admin-options', plugin_dir_url(dirname(__FILE__)) . 'admin/css/admin-options.css', array());
 }
 function acf_rfq_admin_scripts()
 {
