@@ -6,7 +6,7 @@
 
 For each `Date and Time` set in the `Repeater Field`, only the scheduled events are output to Archive Page.
 
-- One `Date and Time` set in the `Repeater Field` is output as `one event`.
+- The `Date and Time` set in the `Loop Field` is outputted as `one event`.
 - Displayed in order of the most recent event (`ASC`).
 - Closed events is not outputted.
 - Supply a `function` for calendar :date:
