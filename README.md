@@ -1,4 +1,4 @@
-# ![SECT](images/logo.jpg "SECT") ACF Repeater Field Query - For Events -
+# <img src="https://github-sect.s3-ap-northeast-1.amazonaws.com/logo.svg" width="28" height="auto"> ACF Repeater Field Query - For Events -
 
 ### Modify the Query to multiple dates in a post For [Advanced Custom Field](https://wordpress.org/plugins/advanced-custom-fields/) "Repeater Field"
 
