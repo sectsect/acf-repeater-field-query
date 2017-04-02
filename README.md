@@ -8,7 +8,7 @@ For each `Date and Time` set in the `Repeater Field`, only the scheduled events 
 
 - One `Date and Time` set in the `Repeater Field` is output as `one event`.
 - Displayed in order of the most recent event (`ASC`).
-- Closed events are not output.
+- Closed events is not outputted.
 - Supply a `function` for calendar :date:
 
 ## Requirements
