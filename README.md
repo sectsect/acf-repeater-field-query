@@ -45,7 +45,7 @@ For each `Date and Time` set in the `Repeater Field`, only the scheduled events 
 You can get a sub query using the `new ACF_RFQ_Query()`
 
 #### Example: Sub Query
-``` php
+```php
 <?php
     $ary	 = array();
     $page    = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -63,7 +63,7 @@ You can get a sub query using the `new ACF_RFQ_Query()`
 <?php wp_reset_postdata(); ?>
 ```
 #### Example: Sub Query For Calendar (Using `acf_rfq_calendar()`)  
-``` php
+```php
 <?php
     $dates   = array();
     $args    = array(
@@ -105,7 +105,7 @@ You can get a sub query using the `new ACF_RFQ_Query()`
 ?>
 ```
 #### Example: Sub Query For Calendar (Using Your Calendar Class)
-``` php
+```php
 <?php
     $ary	 = array();
     $args    = array(
@@ -132,7 +132,7 @@ You can get a sub query using the `new ACF_RFQ_Query()`
 ?>
 ```
 #### Example: Get the "Date", "StartTime" and "FinishTime"
-``` php
+```php
 <div id="date">
     <?php echo date('Y-m-d', strtotime($post->date)); ?>
 </div>
