@@ -191,6 +191,7 @@ acf_rfq_calendar($args);
 
 ## Change log  
 
+ * **1.1.1** - Update composer packages.
  * **1.1.0** - Code refactoring.
  * **1.0.1** - Fix time settings for displayed status on Admin-column.
  * **1.0.0** - Initial Release
