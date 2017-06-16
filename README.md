@@ -190,11 +190,7 @@ acf_rfq_calendar($args);
 * This Plugin does not hosting on the [wordpress.org](https://wordpress.org/) repo in order to prevent a flood of support requests from wide audience.
 
 ## Change log  
-
- * **1.1.1** - Update composer packages.
- * **1.1.0** - Code refactoring.
- * **1.0.1** - Fix time settings for displayed status on Admin-column.
- * **1.0.0** - Initial Release
+See [CHANGELOG](https://github.com/sectsect/acf-repeater-field-query/blob/master/CHANGELOG.md) file.
 
 ## License
 See [LICENSE](https://github.com/sectsect/acf-repeater-field-query/blob/master/LICENSE) file.
