@@ -61,23 +61,23 @@
     },
     {
         "name": "symfony/options-resolver",
-        "version": "v2.8.16",
-        "version_normalized": "2.8.16.0",
+        "version": "v2.8.22",
+        "version_normalized": "2.8.22.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/options-resolver.git",
-            "reference": "cc343e8e30e0e9785a0871196af722665d8b970e"
+            "reference": "55bf349a3395afad81a369d57b3b99c373fbbdf5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/cc343e8e30e0e9785a0871196af722665d8b970e",
-            "reference": "cc343e8e30e0e9785a0871196af722665d8b970e",
+            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/55bf349a3395afad81a369d57b3b99c373fbbdf5",
+            "reference": "55bf349a3395afad81a369d57b3b99c373fbbdf5",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.9"
         },
-        "time": "2017-01-02T20:30:24+00:00",
+        "time": "2017-04-12T14:07:15+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
