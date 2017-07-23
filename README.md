@@ -195,7 +195,7 @@ See [CHANGELOG](https://github.com/sectsect/acf-repeater-field-query/blob/master
 ## Contributing
 
 1. Create an issue and describe your idea
-2. [Fork it]https://github.com/sectsect/acf-repeater-field-query/fork)
+2. [Fork it](https://github.com/sectsect/acf-repeater-field-query/fork)
 3. Create your feature branch (`git checkout -b my-new-feature`)
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Publish the branch (`git push origin my-new-feature`)
