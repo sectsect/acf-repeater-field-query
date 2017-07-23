@@ -8,7 +8,7 @@
     "packages": [
         {
             "name": "symfony/options-resolver",
-            "version": "v2.8.22",
+            "version": "v2.8.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
