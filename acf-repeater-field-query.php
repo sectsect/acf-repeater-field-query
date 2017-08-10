@@ -79,10 +79,7 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		        global $wpdb;
 		        $fields = get_field(ACF_RFQ_ACF_REPEATER, $post_id);
 		        $this->sortArrayByKey($fields, ACF_RFQ_ACF_REPEATER_DATE);  // sorting by "date"
-
-		        $sql = 'DELETE FROM '.TABLE_NAME." WHERE post_id = $post_id;";
-		        $sql = $wpdb->prepare($sql);
-		        $result = $wpdb->query($sql);
+				$result = $wpdb->delete( TABLE_NAME, array( 'post_id' => $post_id ) );
 
 		        foreach ($fields as $field) {
 		            // $date = str_replace('-', '', $field[ACF_RFQ_ACF_REPEATER_DATE]);
@@ -97,9 +94,21 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		            } else {
 		                $ftime = 'null';
 		            }
-		            $sql = 'INSERT INTO '.TABLE_NAME." (post_id, date, starttime, finishtime) VALUES ($post_id, $date, $stime, $ftime);";
-		            $sql = $wpdb->prepare($sql);
-		            $result = $wpdb->query($sql);
+					$result = $wpdb->insert(
+						TABLE_NAME,
+						array(
+							'post_id'    => $post_id,
+							'date'       => $date,
+							'starttime'  => $stime,
+							'finishtime' => $ftime,
+						),
+						array(
+							'%d',
+							'%s',
+							'%s',
+							'%s',
+						)
+					);
 		        }
 		    }
 		}
@@ -111,9 +120,7 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		{
 		    if (get_post_type($post_id) == ACF_RFQ_POST_TYPE && get_field(ACF_RFQ_ACF_REPEATER, $post_id)) {
 		        global $wpdb;
-		        $sql = 'DELETE FROM '.TABLE_NAME." WHERE post_id = $post_id;";
-		        $sql = $wpdb->prepare($sql);
-		        $result = $wpdb->query($sql);
+				$result = $wpdb->delete( TABLE_NAME, array( 'post_id' => $post_id ) );
 		    }
 		}
 
