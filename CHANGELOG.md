@@ -1,5 +1,8 @@
 # Change Log
 
+## [v1.1.3](https://github.com/sectsect/acf-repeater-field-query/tree/v1.1.3) (2017-08-10)
+[Full Changelog](https://github.com/sectsect/acf-repeater-field-query/compare/v1.1.2...v1.1.3)
+
 ## [v1.1.2](https://github.com/sectsect/acf-repeater-field-query/tree/v1.1.2) (2017-07-23)
 [Full Changelog](https://github.com/sectsect/acf-repeater-field-query/compare/v1.1.1...v1.1.2)
 
