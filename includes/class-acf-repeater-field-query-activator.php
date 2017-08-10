@@ -35,7 +35,7 @@ class Acf_Repeater_Field_Query_Activator {
 	    $installed_ver = get_option('acf_rfq_version');
 	    $charset_collate = $wpdb->get_charset_collate();
 	    if ($installed_ver != $acf_rfq_db_version) {
-	        $sql = 'CREATE TABLE '.TABLE_NAME." (
+	        $sql = 'CREATE TABLE '.ACF_RFQ_TABLE_NAME." (
 	              event_id bigint(20) NOT NULL AUTO_INCREMENT,
 	              post_id bigint(20) NOT NULL,
 	              date date NOT NULL,

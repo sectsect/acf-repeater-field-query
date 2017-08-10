@@ -10,7 +10,7 @@ function event_fields($select)
 function event_join($join)
 {
     global $wpdb;
-    $join = 'LEFT JOIN '.TABLE_NAME." ON {$wpdb->posts}.ID = ".TABLE_NAME.'.post_id';
+    $join = 'LEFT JOIN '.ACF_RFQ_TABLE_NAME." ON {$wpdb->posts}.ID = ".ACF_RFQ_TABLE_NAME.'.post_id';
 
     return $join;
 }

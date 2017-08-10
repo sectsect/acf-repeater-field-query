@@ -35,7 +35,7 @@ register_activation_hook( __FILE__, 'activate_acf_repeater_field_query' );
 register_deactivation_hook( __FILE__, 'deactivate_acf_repeater_field_query' );
 
 global $wpdb;
-define('TABLE_NAME', $wpdb->prefix.'acf_repeater_field_query');
+define('ACF_RFQ_TABLE_NAME', $wpdb->prefix.'acf_repeater_field_query');
 define('ACF_RFQ_POST_TYPE', get_option('acf_rfq_posttype'));
 define('ACF_RFQ_TAXONOMY', get_option('acf_rfq_taxonomy'));
 define('ACF_RFQ_ACF_REPEATER', get_option('acf_rfq_dategroup'));
@@ -79,7 +79,7 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		        global $wpdb;
 		        $fields = get_field(ACF_RFQ_ACF_REPEATER, $post_id);
 		        $this->sortArrayByKey($fields, ACF_RFQ_ACF_REPEATER_DATE);  // sorting by "date"
-				$result = $wpdb->delete( TABLE_NAME, array( 'post_id' => $post_id ) );
+				$result = $wpdb->delete( ACF_RFQ_TABLE_NAME, array( 'post_id' => $post_id ) );
 
 		        foreach ($fields as $field) {
 		            // $date = str_replace('-', '', $field[ACF_RFQ_ACF_REPEATER_DATE]);
@@ -95,7 +95,7 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		                $ftime = 'null';
 		            }
 					$result = $wpdb->insert(
-						TABLE_NAME,
+						ACF_RFQ_TABLE_NAME,
 						array(
 							'post_id'    => $post_id,
 							'date'       => $date,
@@ -120,7 +120,7 @@ if ( ! class_exists( 'ACF_RFQ' ) ) {
 		{
 		    if (get_post_type($post_id) == ACF_RFQ_POST_TYPE && get_field(ACF_RFQ_ACF_REPEATER, $post_id)) {
 		        global $wpdb;
-				$result = $wpdb->delete( TABLE_NAME, array( 'post_id' => $post_id ) );
+				$result = $wpdb->delete( ACF_RFQ_TABLE_NAME, array( 'post_id' => $post_id ) );
 		    }
 		}
 
