@@ -34,3 +34,22 @@ function get_post_type_date_link($post_type, $year, $month = 0, $day = 0)
 
     return home_url("$post_type_slug");
 }
+
+function get_months_from_now($num)
+{
+    if (!$num) {
+        $num = 1;
+    }
+    $date   = new DateTime();
+    $months = array();
+    for ($i = 0; $i < intval($num); ++$i) {
+        if ($i > 0) {
+            $date->modify('first day of +1 month');
+        } else {
+            $date->modify('first day of this month');
+        }
+        array_push($months, $date->format('Ym'));
+    }
+
+    return $months;
+}

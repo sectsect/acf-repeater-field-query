@@ -47,7 +47,7 @@ You can get a sub query using the `new ACF_RFQ_Query()`
 #### Example: Sub Query
 ```php
 <?php
-    $ary	 = array();
+    $ary     = array();
     $page    = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $perpage = 10;
     $offset  = ($page - 1) * $perpage;
@@ -83,31 +83,22 @@ You can get a sub query using the `new ACF_RFQ_Query()`
 <?php
     // Passing array to acf_rfq Calendar Class.
     $dates  = array_unique($dates);	// Remove some Duplicate Values(Day)
-    $date   = new DateTime();
-    $months = array();
-    for ($i = 0; $i < 3; ++$i) {	  // 3 months Calendar
-        if ($i > 0) {
-            $date->modify('first day of +1 month');
-        } else {
-            $date->modify('first day of this month');
-        }
-        array_push($months, $date->format('Ym'));
-    }
-	$args = array(
-		'dates'        => $dates,		// (array) (required) Array of event Date ('Ymd' format)
-		'months'       => $months,		// (array) (required) Array of month to generate calendar ('Ym' format)
-		'weekdayLabel' => 'default',	// (string) (optional) Available value: 'default' or 'en' Note: 'default' is based on your wordpress locale setting.
-		'weekdayBase'  => 0,			// (integer) (optional) The start weekday. 0:sunday ～ 6:saturday Default: 0
-		'element'      => 'div',		// (string) (optional) The element for wraping. Default: 'div'
-		'class'        => ''			// (string) (optional) The 'class' attribute value for wrap element. Default: ''
-	);
-	acf_rfq_calendar($args);
+    $months = get_months_from_now(3);
+    $args = array(
+        'dates'        => $dates,		// (array) (required) Array of event Date ('Ymd' format)
+        'months'       => $months,		// (array) (required) Array of month to generate calendar ('Ym' format)
+        'weekdayLabel' => 'default',	// (string) (optional) Available value: 'default' or 'en' Note: 'default' is based on your wordpress locale setting.
+        'weekdayBase'  => 0,			// (integer) (optional) The start weekday. 0:sunday ～ 6:saturday Default: 0
+        'element'      => 'div',		// (string) (optional) The element for wraping. Default: 'div'
+        'class'        => ''			// (string) (optional) The 'class' attribute value for wrap element. Default: ''
+    );
+    acf_rfq_calendar($args);
 ?>
 ```
 #### Example: Sub Query For Calendar (Using Your Calendar Class)
 ```php
 <?php
-    $ary	 = array();
+    $ary     = array();
     $args    = array(
         'posts_per_page'    => -1,
         'calendar'          => true		// For get the data from not today but first day in this month.
@@ -142,6 +133,22 @@ You can get a sub query using the `new ACF_RFQ_Query()`
 ```
 
 ## function
+
+#### get_months_from_now($num)  
+##### Parameters
+
+* **num**
+(integer) (required) Number of months to get.  
+Default: `1`
+
+##### Return Values
+
+(array)  
+`Ym` formatted.
+
+```php
+$months = get_months_from_now(3);
+```
 
 #### acf_rfq_calendar($args)  
 ##### Parameters
