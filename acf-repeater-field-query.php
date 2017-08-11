@@ -4,7 +4,7 @@ Plugin Name: ACF Repeater Field Query
 Plugin URI: https://github.com/sectsect/acf-repeater-field-query
 Description: Modify the Query to multiple dates in a post For Advanced Custom Field "Repeater Field".
 Author: SECT INTERACTIVE AGENCY
-Version: 1.1.3
+Version: 1.1.4
 Author URI: https://www.ilovesect.com/
 */
 
