@@ -73,8 +73,9 @@ function acf_rfq_calendar($args)
 	    $today        = date_i18n('Ymd');
 	    $factory      = new CalendR\Calendar();
 		$num = 1;
-	    foreach ($months as $month):
-			$month = $month . "01";
+		foreach ($months as $month):
+			$factory->setFirstWeekday( $weekdayBase );
+			$month = $month . '01';
 	        $month = $factory->getMonth(date('Y', strtotime($month)), date('m', strtotime($month)));
 ?>
 	<<?php echo esc_html($element); ?> class="calendar-<?php echo $num; ?> calendar-<?php echo date('Y', strtotime($month)) . "-" . date('m', strtotime($month)) ?><?php if($class): ?> <?php echo esc_html($class); ?><?php endif; ?>">
